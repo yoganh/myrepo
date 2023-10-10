@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1613653887 source:d:\file polban\mata-kuliah-ti-semester1\ddp semester 1\ddp praktek\tubesfix\buku.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"buku.h"
+
+1613119788 d:\file polban\mata-kuliah-ti-semester1\ddp semester 1\ddp praktek\tubesfix\buku.h
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+
+1613115924 source:d:\file polban\mata-kuliah-ti-semester1\ddp semester 1\ddp praktek\tubesfix\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"buku.h"
+
