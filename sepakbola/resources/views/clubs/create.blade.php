@@ -14,7 +14,7 @@
         <label for="kotaKlub" class="form-label">Kota Klub</label>
         <input type="text" class="form-control" id="kotaKlub" name="kota" required>
     </div>
-    <button class="btn btn-primary" type="submit">Button</button>
+    <button class="btn btn-success" type="submit">Simpan</button>
 </form>
 @endsection
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Input Skor Pertandingan</h2>
+    <h2 >Input Skor Pertandingan</h2>
     <form action="{{ route('skor.store') }}" method="POST">
         @csrf
         <div id="form-container">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <button type="button" class="btn btn-primary" id="add-match">Tambah Pertandingan</button>
-        <button type="submit" class="btn btn-primary">Simpan Skor</button>
+        <button type="submit" class="btn btn-success">Simpan Skor</button>
     </form>
 @endsection
 
