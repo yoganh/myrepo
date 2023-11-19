@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('skors', function (Blueprint $table) {
+        Schema::table('skor', function (Blueprint $table) {
             $table->integer('point')->default(0);
         });
     }
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('skors', function (Blueprint $table) {
+        Schema::table('skor', function (Blueprint $table) {
             //
         });
     }

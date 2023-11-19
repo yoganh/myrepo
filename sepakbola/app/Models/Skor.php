@@ -9,6 +9,8 @@ class Skor extends Model
 {
     use HasFactory;
 
+    protected $table = 'skor';
+
     protected $fillable = [
         'tim_satu',
         'skor_satu',

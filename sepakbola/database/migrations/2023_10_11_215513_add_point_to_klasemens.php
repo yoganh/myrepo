@@ -6,27 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
+        // Hapus kolom 'point' jika sudah ada
+        if (Schema::hasColumn('klasemens', 'point')) {
+            Schema::table('klasemens', function (Blueprint $table) {
+                $table->dropColumn('point');
+            });
+        }
+
+        // Tambahkan kolom 'point' dengan nilai default 0
         Schema::table('klasemens', function (Blueprint $table) {
-            $table->integer('point')->default(0); // Kolom 'point' dengan nilai default 0
+            $table->integer('point')->default(0);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
+        // Hapus kolom 'point'
         Schema::table('klasemens', function (Blueprint $table) {
-            $table->dropColumn('point'); // Menghapus kolom 'point'
+            $table->dropColumn('point');
         });
     }
 };
+
+?>
