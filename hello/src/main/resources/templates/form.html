@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Formulir Data Nasabah</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-PR1E8xNrm0aoIqTeqJH3P82/FNcMrJeJ0+gSmUia3h9i7zKtoj1Z8mi3JZ8a2xhdb5IvqLdQKnRWq3s9VbDcA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h4>Pembukaan Nasabah CIF perorangan</h4>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        
+      <form action="/submit" method="post" th:object="${nasabah}">
+        <div class="form-group row">
+          <label for="noCif" class="col-sm-2 col-form-label">NO CIF</label>
+          <div class="col-sm-3">
+            <input
+              type="text"
+              class="form-control"
+              id="nocif"
+              placeholder="NO CIF"
+              th:field="*{cifId}"
+            />
+          </div>
+          <div class="col-sm-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1" />
+              <label class="form-check-label" for="gridCheck1"
+                >Terikat Bank</label
+              >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group row">
+              <label for="cabang" class="col-sm-2 col-form-label"
+                >Tanggal Pembukaan</label
+              >
+              <div class="col-sm-5">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="inputTanggalPembukaan"
+                  name="tanggal_pembukaan"
+                  th:field="*{tanggalPembukaan}"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="nama_lengkap" class="col-sm-2 col-form-label"
+            >Nama Lengkap</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNamaLengkap"
+              placeholder="Nama Lengkap"
+              th:field="*{namaLengkap}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nama_singkat" class="col-sm-2 col-form-label"
+            >Nama Singkat</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNamaSingkat"
+              placeholder="Nama Singkat"
+              th:field="*{namaSingkat}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nama_akses" class="col-sm-2 col-form-label"
+            >Nama Akses</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNamaAkses"
+              placeholder="Nama Akses"
+              th:field="*{alias}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nama_gdi_kandung" class="col-sm-2 col-form-label"
+            >Nama Gadis Ibu Kandung</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNamaGDIKandung"
+              placeholder="Nama Gadis Ibu Kandung"
+              th:field="*{namaGDIKandung}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="jenis_kelamin" class="col-sm-2 col-form-label"
+            >Jenis Kelamin</label
+          >
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                class="form-check-input"
+                id="radioPerempuan"
+                name="jk"
+                value="perempuan"
+                th:field="*{sex}"
+              />
+              <label class="form-check-label" for="radioPerempuan"
+                >Perempuan</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                class="form-check-input"
+                id="radioLakiLaki"
+                name="jk"
+                value="laki-laki"
+                th:field="*{sex}"
+              />
+              <label class="form-check-label" for="radioLakiLaki"
+                >Laki-laki</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tempat_lahir" class="col-sm-2 col-form-label"
+            >Tempat Lahir</label
+          >
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="inputTempatLahir"
+              name="tempat_lahir"
+              th:field="*{tempatLahir}"
+            />
+          </div>
+          <label for="inputTanggalLahir" class="col-sm-2 col-form-label"
+            >Tanggal Lahir</label
+          >
+          <div class="col-sm-4">
+            <input
+              type="date"
+              class="form-control"
+              id="inputTanggalLahir"
+              name="tanggal_lahir"
+              th:field="*{tanggalLahir}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="selectJenisIdentitas" class="col-sm-2 col-form-label"
+            >Jenis Identitas</label
+          >
+          <div class="col-sm-3">
+            <select
+              class="form-control"
+              id="selectJenisIdentitas"
+              name="jenis_identitas"
+              th:field="*{typeId}"
+            >
+              <option value="ktp">Kartu Tanda Penduduk (KTP)</option>
+              <option value="sim">Surat Izin Mengemudi (SIM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nomor_identitas" class="col-sm-2 col-form-label"
+            >No Identitas</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="number"
+              class="form-control"
+              id="inputNomorIdentitas"
+              placeholder="No Identitas"
+              th:field="*{idnBr}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="alamat" class="col-sm-2 col-form-label"
+            >Alamat</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="text"
+              placeholder="Alamat"
+              th:field="*{addr}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputRT" class="col-sm-2 col-form-label">RT</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="inputRT" name="rt" th:field="*{rt}" />
+
+          </div>
+          <label for="inputRW" class="col-sm-1 col-form-label">RW</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="inputRW" name="rw" th:field="*{rw}" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="kelurahan" class="col-sm-2 col-form-label"
+            >Kelurahan</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputKelurahan"
+              placeholder="Kelurahan"
+              th:field="*{kelNm}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="provinsi" class="col-sm-2 col-form-label"
+            >Provinsi</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputProvinsi"
+              placeholder="Provinsi"
+              th:field="*{provId}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="selectJenisIdentitas" class="col-sm-2 col-form-label"
+            >Negara</label
+          >
+          <div class="col-sm-4">
+            <select class="form-control" id="selectNegara" name="jenis_identitas" th:field="*{countryId}">
+              <option value="id">Indonesia</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="NPWP" class="col-sm-2 col-form-label"
+            >No NPWP</label
+          >
+          <div class="col-sm-5">
+            <input
+              type="number"
+              class="form-control"
+              id="inputNPWP"
+              placeholder="No NPWP"
+              th:field="*{npwp}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="HP" class="col-sm-2 col-form-label">No HP</label>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              class="form-control"
+              id="inputHP"
+              placeholder="No HP"
+              th:field="*{noTelp}"
+            />
+          </div>
+        </div>
+            <div class="form-group row">
+              <label for="masa_berlaku" class="col-sm-2 col-form-label"
+                >Masa Berlaku</label
+              >
+              <div class="col-sm-5">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="inputMasaBerlaku"
+                  name="masa_berlaku"
+                  th:field="*{expdate}"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="kodepos" class="col-sm-2 col-form-label"
+                  >Kode Pos</label
+                >
+                <div class="col-sm-5">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="inputKodePos"
+                    name="kode_pos"
+                    th:field="*{postalCode}"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="kecamatan" class="col-sm-2 col-form-label"
+                  >Kecamatan</label
+                >
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputKecamatan"
+                    placeholder="Kecamatan"
+                    th:field="*{kecNm}"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="kabupaten_kota" class="col-sm-2 col-form-label"
+                  >Kabupaten/kota</label
+                >
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputKabupatenKota"
+                    placeholder="Kabupaten / Kota"
+                    th:field="*{cityId}"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="keterangan" class="col-sm-2 col-form-label"
+                  >Keterangan</label
+                >
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputKeterangan"
+                    placeholder="Keterangan"
+                    th:field="*{note}"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.print()">Cetak</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+            </div>
+            
+      </form>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+  </body>
+</html>
+
+
